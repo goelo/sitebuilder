@@ -20,6 +20,11 @@
 ```
 sitebuilder/
 ├── README.md
+├── roblox-monitor/          # 📊 Roblox 游戏趋势监控（数据驱动选游戏）
+│   ├── README.md            # 使用说明
+│   └── scripts/
+│       ├── collect.py       # 采集 Rolimons 在线数据 → SQLite
+│       └── trend-analysis.py # 趋势分析 → 建站候选清单 Top10
 ├── step1-research/          # Step 1: 素材采集与游戏研究
 │   ├── SKILL.md             # 调度文件（总览）
 │   ├── step1a-identity-sources.md   # 1a: 游戏身份确认 + 官方源锁定
@@ -89,6 +94,20 @@ sitebuilder/
 ```
 
 ## 使用方式
+
+### 选游戏：roblox-monitor（可选，数据驱动）
+
+在跑 Step 1 之前，可以用 `roblox-monitor/` 自动筛选值得做的游戏：
+
+1. `collect.py` 每小时采集 Rolimons 在线数据（零依赖，纯标准库）
+2. `trend-analysis.py` 每天分析趋势，产出 Top 10 建站候选清单
+3. 把清单里的游戏名喂给 Step 1
+
+适合"不知道做什么游戏"的场景。已有目标游戏可跳过此步。
+
+详见 [`roblox-monitor/README.md`](roblox-monitor/README.md)。
+
+### 跑建站 SOP
 
 每一步读取对应目录下的 `SKILL.md` 作为入口，按子阶段顺序执行。
 
